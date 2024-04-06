@@ -1,3 +1,27 @@
+<!-- Font-awesome Icons CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+  .float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #222222;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+</style>
+
 <nav class="bg-white border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">

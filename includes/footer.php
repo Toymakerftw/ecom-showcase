@@ -1,3 +1,7 @@
+<a href="https://api.whatsapp.com/send?phone=917012745003&text=Hi%20there%20." class="float" target="_blank">
+      <i class="fab fa-whatsapp my-float"></i>
+</a>
+
 <footer class="bg-white">
     <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
       <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
