@@ -1,0 +1,5 @@
+# Ignore all files inside the assets/images/products directory
+assets/images/carousel/*
+assets/images/categories/*
+assets/images/offers/*
+assets/images/products/*

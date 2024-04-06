@@ -2,6 +2,24 @@
 session_start();
 include 'includes/config.php';
 
+// Function to delete image file
+function deleteImageFile($filename) {
+    // Construct the full path to the file
+    $file_path = "assets/images/products/" . $filename;
+
+    // Check if the file exists
+    if (file_exists($file_path)) {
+        // Attempt to delete the file
+        if (unlink($file_path)) {
+            return true; // File deleted successfully
+        } else {
+            return false; // Unable to delete file
+        }
+    } else {
+        return true; // File doesn't exist, consider it deleted
+    }
+}
+
 // Check if user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -17,11 +35,20 @@ if (isset($_GET['id'])) {
 
     if ($result->num_rows > 0) {
         // Product exists, delete it
-        $delete_sql = "DELETE FROM products WHERE id='$product_id'";
-        if ($conn->query($delete_sql) === TRUE) {
-            $success_message = "Product deleted successfully!";
+        $row = $result->fetch_assoc();
+        $image_filename = $row['image'];
+
+        // Delete the image file
+        if (deleteImageFile($image_filename)) {
+            // Prepare and execute the SQL query to delete the product from the database
+            $delete_sql = "DELETE FROM products WHERE id='$product_id'";
+            if ($conn->query($delete_sql) === TRUE) {
+                $success_message = "Product deleted successfully!";
+            } else {
+                $error_message = "Error deleting product: " . $conn->error;
+            }
         } else {
-            $error_message = "Error deleting product: " . $conn->error;
+            $error_message = "Error deleting image file";
         }
     } else {
         // Product does not exist
